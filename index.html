@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso dia 30</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .corazon {
+            position: absolute;
+            width: 1.5vw;
+            height: 1.5vw;
+            background-color: red;
+            clip-path: polygon(50% 15%, 90% 80%, 50% 100%, 10% 80%);
+            animation: move 5s linear infinite, fadeInOut 2s linear infinite;
+            opacity: 0;
+        }
+        @keyframes move {
+            0% {
+                transform: translateY(-100vh);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center"> Feliz 3 meses! </h1>
+    
+    <script>
+        function createHearts() {
+            const numberOfHearts = 100;
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement("div");
+                heart.className = "corazon";
+                heart.style.left = Math.random() * 100 + "vw"; /* Posição responsiva */
+                heart.style.top = Math.random() * 100 + "vh"; /* Posição responsiva */
+                heart.style.animationDelay = Math.random() * 10 + "s";
+                document.body.appendChild(heart);
+            }
+        }
+
+        window.onload = createHearts;
+    </script>
+</body>
+
+</html>
